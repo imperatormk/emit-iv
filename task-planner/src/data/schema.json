@@ -1,0 +1,59 @@
+{
+  "fields": [
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "number",
+      "conditional": null,
+      "validationRules": [
+        { "type": "required", "message": "Please provide your age" },
+        {
+          "type": "min",
+          "value": 18,
+          "message": "You must be at least 18 years old"
+        },
+        { "type": "max", "value": 65, "message": "Age must be below 65" }
+      ]
+    },
+    {
+      "id": "isStudent",
+      "label": "Are you a student?",
+      "type": "checkbox",
+      "conditional": null
+    },
+    {
+      "id": "schoolName",
+      "label": "School Name",
+      "type": "text",
+      "conditional": {
+        "field": "isStudent",
+        "value": true
+      },
+      "validationRules": [{ "type": "required" }]
+    },
+    {
+      "id": "degree",
+      "label": "Degree Program",
+      "type": "dropdown",
+      "options": [
+        {
+          "value": "bachelor",
+          "label": "Bachelor"
+        },
+        {
+          "value": "master",
+          "label": "Master"
+        },
+        {
+          "value": "phd",
+          "label": "PhD"
+        }
+      ],
+      "conditional": {
+        "field": "isStudent",
+        "value": true
+      },
+      "validationRules": [{ "type": "required" }]
+    }
+  ]
+}
